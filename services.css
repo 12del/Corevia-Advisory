@@ -1,0 +1,650 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo:hover {
+  color: #2c5a7a;
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #2c3e50;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+.nav-link:hover {
+  color: #e67e22;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: #1a3e60;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Page Hero (Inner Banner) - Services Page */
+.page-hero {
+  position: relative;
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 100px 1.5rem 60px;
+  margin-top: 0;
+  
+  /* Subtle gradient background (default) */
+  background: linear-gradient(135deg, #eef2f7 0%, #e0e8f0 100%);
+  
+  /* Optional: abstract network pattern (very light) */
+  background-image: radial-gradient(circle at 10% 20%, rgba(230,126,34,0.08) 1.5%, transparent 2%),
+                    radial-gradient(circle at 80% 70%, rgba(26,62,96,0.05) 1%, transparent 1.5%);
+  background-size: 40px 40px, 30px 30px;
+  background-blend-mode: overlay;
+  
+  /* If you want a professional image instead, uncomment below and replace URL */
+  /* background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+
+/* Dark overlay (only needed if using background image with low contrast) */
+.page-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+  display: none; /* hidden by default because gradient is light */
+}
+
+/* If you use a dark image, set .page-hero-overlay { display: block; } and adjust text colors */
+.page-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #5a6e7c;
+}
+
+.breadcrumb-link {
+  color: #e67e22;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb-link:hover {
+  color: #d35400;
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #94a3b8;
+}
+
+.breadcrumb-current {
+  color: #1a3e60;
+  font-weight: 500;
+}
+
+/* Headline & subheadline */
+.page-hero-headline {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.page-hero-subheadline {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #2c3e50;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 35vh;
+    padding: 80px 1rem 50px;
+  }
+  .page-hero-headline {
+    font-size: 2rem;
+  }
+  .page-hero-subheadline {
+    font-size: 1rem;
+  }
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+}
+
+/* Services Overview Section - Corevia Advisory */
+.services-overview {
+  padding: 60px 1.5rem 40px;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.so-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.so-statement {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Icon row (trust badges) */
+.so-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.so-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.so-icon-item:hover {
+  transform: translateY(-5px);
+}
+
+.so-icon-item i {
+  font-size: 2.2rem;
+  color: #e67e22;
+}
+
+.so-icon-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a3e60;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-overview {
+    padding: 40px 1rem 30px;
+  }
+  .so-statement {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .so-icons {
+    gap: 1.2rem;
+  }
+  .so-icon-item i {
+    font-size: 1.8rem;
+  }
+  .so-icon-item span {
+    font-size: 0.8rem;
+  }
+}
+
+/* Full Services Grid Section - Corevia Advisory */
+.services-grid-section {
+  padding: 60px 1.5rem 80px;
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.sg-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.sg-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(230,126,34,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(230,126,34,0.12);
+  border-color: rgba(230,126,34,0.3);
+}
+
+.sg-icon {
+  font-size: 2.5rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.sg-card:hover .sg-icon {
+  transform: scale(1.1);
+}
+
+.sg-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.sg-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.sg-btn {
+  background: transparent;
+  border: 1px solid #e67e22;
+  color: #e67e22;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.sg-btn:hover {
+  background: #e67e22;
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-grid-section {
+    padding: 40px 1rem 60px;
+  }
+  .sg-grid {
+    gap: 1.2rem;
+  }
+  .sg-card {
+    padding: 1.3rem;
+  }
+  .sg-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Why Choose Our Services (Highlight Reel with Background Image) - Corevia Advisory */
+.why-our-services {
+  position: relative;
+  padding: 80px 1.5rem;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  /* Background image – replace URL with your own */
+  background-image: url('Images/type.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* optional parallax */
+  overflow: hidden;
+}
+
+/* Dark overlay for text readability */
+.wos-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65) url('Images/type.jpg');
+  z-index: 1;
+}
+
+.wos-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.wos-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.wos-heading:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #e67e22;
+  border-radius: 2px;
+}
+
+.wos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.wos-card {
+  flex: 1;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(2px);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(230,126,34,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wos-card:hover {
+  transform: translateY(-6px);
+  background: white;
+  box-shadow: 0 15px 30px rgba(230,126,34,0.2);
+  border-color: rgba(230,126,34,0.4);
+}
+
+.wos-icon {
+  font-size: 2.5rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.wos-card:hover .wos-icon {
+  transform: scale(1.1);
+}
+
+.wos-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+}
+
+.wos-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why-our-services {
+    padding: 50px 1rem;
+    background-attachment: scroll;
+  }
+  .wos-heading {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .wos-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .wos-card {
+    padding: 1.3rem;
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+/* Footer Section - Corevia Advisory */
+.footer {
+  background-color: #0f2c3d;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1.5rem 1.5rem;
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #2c4a6e;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.footer-link:hover {
+  color: #e67e22;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  color: #cbd5e1;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.copyright {
+  margin: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #e67e22;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: #d35400;
+  transform: translateY(-3px);
+}
+
+.back-to-top.show {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+

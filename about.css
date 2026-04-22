@@ -1,0 +1,956 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo:hover {
+  color: #2c5a7a;
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #2c3e50;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+.nav-link:hover {
+  color: #e67e22;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: #1a3e60;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Page Hero (Inner Banner) with Background Image - Corevia Advisory */
+.page-hero {
+  position: relative;
+  width: 100%;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 100px 1.5rem 60px;
+  margin-top: 0;
+  
+  /* Background image – replace URL with your own image */
+  background-image: url('/Images/background.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional parallax effect */
+}
+
+/* Dark overlay for text readability */
+.page-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+.page-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb styles */
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #f0f0f0;
+}
+
+.breadcrumb-link {
+  color: #f39c12;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb-link:hover {
+  color: #e67e22;
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Headline & subheadline */
+.page-hero-headline {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.page-hero-subheadline {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fef9e6;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 40vh;
+    padding: 80px 1rem 50px;
+    background-attachment: scroll; /* disable fixed on mobile for better performance */
+  }
+  .page-hero-headline {
+    font-size: 2rem;
+  }
+  .page-hero-subheadline {
+    font-size: 1rem;
+  }
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+}
+
+/* Who We Are (Company Overview) Section - Corevia Advisory */
+.who-we-are {
+  padding: 80px 1.5rem;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.wwa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wwa-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+}
+
+.wwa-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.wwa-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.wwa-heading:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #e67e22;
+  border-radius: 2px;
+}
+
+.wwa-paragraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+}
+
+.wwa-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.wwa-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wwa-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .who-we-are {
+    padding: 60px 1rem;
+  }
+  .wwa-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .wwa-heading {
+    font-size: 1.8rem;
+  }
+  .wwa-paragraph {
+    font-size: 0.95rem;
+  }
+  .wwa-img {
+    max-width: 100%;
+  }
+}
+
+/* Mission & Vision Section - Enhanced with Animation & Brilliance */
+.mission-vision {
+  padding: 80px 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+/* Animated gradient background on section (subtle shift) */
+.mission-vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(230,126,34,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  animation: bgPulse 8s infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.mv-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.mv-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.mv-card {
+  flex: 1;
+  min-width: 280px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(0px);
+  padding: 2rem 1.8rem;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid rgba(230,126,34,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient border on hover */
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #e67e22, #f39c12, #e67e22, #f1c40f);
+  background-size: 300% 300%;
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  animation: borderShine 3s ease infinite;
+}
+
+@keyframes borderShine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.mv-card:hover::before {
+  opacity: 1;
+}
+
+.mv-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 40px rgba(230,126,34,0.2);
+  border-color: transparent;
+}
+
+/* Floating icon animation */
+.mv-icon {
+  font-size: 3rem;
+  color: #e67e22;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Hover: icon scale + color shift */
+.mv-card:hover .mv-icon {
+  animation: none;
+  transform: scale(1.1);
+  color: #d35400;
+  transition: all 0.3s;
+}
+
+.mv-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 1rem;
+  letter-spacing: -0.3px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Title underline animation on hover */
+.mv-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #e67e22;
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.mv-card:hover .mv-title::after {
+  width: 50px;
+}
+
+.mv-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+  transition: color 0.3s;
+}
+
+.mv-card:hover .mv-text {
+  color: #1a3e60;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mission-vision {
+    padding: 60px 1rem;
+  }
+  .mv-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .mv-card {
+    padding: 1.5rem;
+  }
+  .mv-title {
+    font-size: 1.5rem;
+  }
+  .mv-icon {
+    font-size: 2.5rem;
+  }
+  @keyframes floatIcon {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+/* Core Values Section - Corevia Advisory */
+.core-values {
+  padding: 80px 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fef9e6 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated background pattern */
+.core-values::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(230,126,34,0.02) 0%, transparent 60%);
+  animation: rotateBg 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cv-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.cv-subheading {
+  font-size: 1.1rem;
+  color: #5a6e7c;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Grid layout: 4 columns, responsive */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.cv-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid rgba(230,126,34,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient border on hover */
+.cv-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #e67e22, #f39c12, #f1c40f);
+  background-size: 200% 200%;
+  border-radius: 26px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.cv-card:hover::before {
+  opacity: 1;
+  animation: borderGlow 1.5s ease infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cv-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(230,126,34,0.15);
+  border-color: transparent;
+}
+
+/* Floating icon animation */
+.cv-icon {
+  font-size: 2.8rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.cv-card:hover .cv-icon {
+  animation: none;
+  transform: scale(1.15);
+  color: #d35400;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.cv-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animated underline on hover */
+.cv-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #e67e22;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.cv-card:hover .cv-title::after {
+  width: 40px;
+}
+
+.cv-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4b5563;
+  transition: color 0.3s;
+}
+
+.cv-card:hover .cv-text {
+  color: #1a3e60;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .core-values {
+    padding: 60px 1rem;
+  }
+  .cv-heading {
+    font-size: 2rem;
+  }
+  .cv-subheading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cv-grid {
+    gap: 1.2rem;
+  }
+  .cv-card {
+    padding: 1.5rem;
+  }
+  .cv-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Why Choose Corevia (Condensed) - Corevia Advisory */
+.why-choose-condensed {
+  padding: 80px 1.5rem;
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.wcc-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.wcc-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.wcc-heading:after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: #e67e22;
+  border-radius: 2px;
+}
+
+.wcc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.wcc-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.wcc-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 30px rgba(230,126,34,0.1);
+  border-color: rgba(230,126,34,0.2);
+}
+
+.wcc-icon {
+  font-size: 2.5rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.wcc-card:hover .wcc-icon {
+  transform: scale(1.1);
+}
+
+.wcc-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+}
+
+.wcc-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why-choose-condensed {
+    padding: 60px 1rem;
+  }
+  .wcc-heading {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .wcc-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .wcc-card {
+    padding: 1.3rem;
+  }
+  .wcc-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Call to Action Section - Corevia Advisory */
+.cta {
+  padding: 80px 1.5rem;
+  background: linear-gradient(135deg, #1a3e60 0%, #0f2c3d 100%);
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-headline {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.3px;
+}
+
+.cta-button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  background-color: #d35400;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta {
+    padding: 60px 1rem;
+  }
+  .cta-headline {
+    font-size: 1.8rem;
+  }
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Footer Section - Corevia Advisory (same as homepage) */
+.footer {
+  background-color: #0f2c3d;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1.5rem 1.5rem;
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #2c4a6e;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.footer-link:hover {
+  color: #e67e22;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  color: #cbd5e1;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.copyright {
+  margin: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #e67e22;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: #d35400;
+  transform: translateY(-3px);
+}
+
+.back-to-top.show {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+

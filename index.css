@@ -1,0 +1,737 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo:hover {
+  color: #2c5a7a;
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #2c3e50;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+.nav-link:hover {
+  color: #e67e22;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: #1a3e60;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Hero Section - Corevia Advisory */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 1.5rem 80px; /* top padding accounts for fixed navbar */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-headline {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a3e60;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero-subheadline {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.hero-tagline {
+  font-size: 1.125rem;
+  color: #5a6e7c;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: #e67e22;
+  color: white;
+  box-shadow: 0 4px 8px rgba(230, 126, 34, 0.2);
+}
+.btn-primary:hover {
+  background-color: #d35400;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #1a3e60;
+  border: 2px solid #1a3e60;
+}
+.btn-secondary:hover {
+  background-color: #1a3e60;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding-top: 80px;
+  }
+  .hero-headline {
+    font-size: 2rem;
+  }
+  .hero-subheadline {
+    font-size: 1.2rem;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* About Us Section - Corevia Advisory */
+.about {
+  padding: 80px 1.5rem;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Grid for mission & vision */
+.about-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-card {
+  flex: 1;
+  min-width: 260px;
+  background: #f8fafc;
+  padding: 2rem 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 1rem;
+  }
+  .about-heading {
+    font-size: 2rem;
+  }
+  .about-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .about-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .about-card {
+    padding: 1.5rem;
+  }
+  .card-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Core Services Section - Corevia Advisory */
+.services {
+  padding: 80px 1.5rem;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.services-subheading {
+  font-size: 1.2rem;
+  color: #5a6e7c;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 1rem;
+  }
+  .services-heading {
+    font-size: 2rem;
+  }
+  .services-subheading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .services-grid {
+    gap: 1.2rem;
+  }
+  .service-card {
+    padding: 1.3rem;
+  }
+  .service-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Why Choose Corevia Section - Corevia Advisory */
+.why-us {
+  padding: 80px 1.5rem;
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.why-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-us-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.why-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1);
+}
+
+.why-icon {
+  font-size: 2.8rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+.why-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a3e60;
+  margin-bottom: 0.75rem;
+}
+
+.why-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .why-us {
+    padding: 60px 1rem;
+  }
+  .why-us-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .why-us-grid {
+    gap: 1.2rem;
+  }
+  .why-card {
+    padding: 1.5rem;
+  }
+  .why-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Credentials & Compliance Section - Corevia Advisory */
+.credentials {
+  padding: 80px 1.5rem;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.credentials-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.credentials-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a3e60;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.credentials-statement {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+}
+
+/* Certificate badges grid */
+.certificates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.cert-card {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+  max-width: 320px;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+}
+
+.cert-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+.cert-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+/* Registration numbers (3 columns) */
+.reg-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+.reg-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.reg-item i {
+  font-size: 1.4rem;
+  color: #e67e22;
+}
+
+/* Compliance note */
+.compliance-note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fef9e6;
+  border-left: 4px solid #e67e22;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #92400e;
+}
+
+.compliance-note i {
+  font-size: 1.4rem;
+  color: #e67e22;
+}
+
+.compliance-note p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .credentials {
+    padding: 60px 1rem;
+  }
+  .credentials-heading {
+    font-size: 2rem;
+  }
+  .reg-numbers {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .compliance-note {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Footer Section - Corevia Advisory */
+.footer {
+  background-color: #0f2c3d;  /* dark blue-green */
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  padding: 2rem 1.5rem 1.5rem;
+  margin-top: 0;  /* ensures no gap above */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #2c4a6e;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.footer-link:hover {
+  color: #e67e22;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  color: #cbd5e1;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.copyright {
+  margin: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #e67e22;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: none;        /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: #d35400;
+  transform: translateY(-3px);
+}
+
+.back-to-top.show {
+  display: flex;        /* shown when scrolled */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
